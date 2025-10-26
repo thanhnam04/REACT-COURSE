@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 2a-2d</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function App ()
+      {
+        return (
+          <>
+          <p>
+            Hello, welcome to my website  
+          </p>
+          
+          <LoginForm />
+
+          </>
+        );
+      }
+    /*
+    div là container hay vật chứa
+    có thể chứa nhiều elements
+    */
+
+    function LoginForm (){ 
+      return (
+        <>
+        
+          <TextBox />
+
+          <button>
+            Login
+          </button>
+          <button>
+            Sign up
+          </button>
+        </>
+      );
+    }
+
+    function TextBox (){ 
+      return (
+       <>
+        <div>
+          <input 
+          placeholder = "Email"
+          size  = "22" 
+          /><br></br>
+          <input 
+          placeholder = "Password"
+          size  = "22" 
+          />
+        </div>
+       </>
+      );
+    }
+
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
