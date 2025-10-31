@@ -12,10 +12,17 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
-      function ProductDetail({name, price,discountPrice}){
+      function ProductDetail({name, price,discountPrice, imageSrc}){
         
         return (
-          <>
+          /*
+          </> đổi thành <div /> là vì 1 một dòng có nhiều elements thì ta
+          dùng div để nó phân chia rõ từng dòng chứa element nào
+          nếu không thì tất cả thẻ sẽ cùng nằm trên một dòng và nó gây kéo dài và 
+          không đúng yêu cầu
+          */
+          <div>
+            <img src={imageSrc} width="150"/>
             <p>{name}</p>
             {!discountPrice && (
               <p>Price: ${price}</p>
@@ -27,26 +34,30 @@
               </>
             )}
             <button>Add to Cart</button>
-          </>
+          </div>
         );
       }
 
       function App(){
         return (
           <>
-            <ProductDetail 
+            <ProductDetail
               name="Cotton socks"
               price="10.90"
               discountPrice="5.45"
+              imageSrc="../img/cottonsocks.png"
+
             />
             <ProductDetail 
               name="Tennis balls"
               price="6.00"
+              imageSrc="../img/tennisballs.png"
             />
             <ProductDetail 
               name="Plain T-shirt"
               price="7.99"
-            />
+              imageSrc="../img/plaintshirt.png"
+            /> 
           </>
         );
       }

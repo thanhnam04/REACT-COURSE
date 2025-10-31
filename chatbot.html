@@ -78,25 +78,51 @@
      */
       // Dùng function=component để tạo App , không nên dùng const
 
+      function ChatMessages(){ 
+        const chatMessages = [{
+          message:'Hello chatbot', 
+          sender:'user',
+          id:'id1'
+        },
+        {
+          message:'Hello! How can I help you?',
+          sender:'robot',
+          id:'id2'
+        },
+        {
+          message:'Can you get me todays date?',
+          sender:'user',
+          id:'id3'
+        },
+        {
+          message:'Today is September 27',
+          sender:'robot',
+          id:'id4'
+        }];
+
+        return (
+          <>
+              {chatMessages.map((chatMessage) => 
+              {
+              return(
+              <ChatMessage 
+              message = {chatMessage.message}
+              sender = {chatMessage.sender}
+              key = {chatMessage.id}
+              />
+              );
+              })}
+          </>
+        );
+      }
+      // tên function luôn bắt đầu bằng chữ in hoa
+      // thì mới sử dụng được
       function App()
       {
         return (
           <>
             <ChatInput />
-            <ChatMessage 
-              message="Hello chatbot" 
-              sender="user" 
-            />
-            <ChatMessage 
-              message="Hello! How can I help you?" sender="robot" 
-            />
-            <ChatMessage 
-              message="Can you get me todays date?" sender="user" 
-            />
-            <ChatMessage 
-              message="Today is September 27" 
-              sender="robot"
-            />
+            <ChatMessages />  
           </>
         );
       }
